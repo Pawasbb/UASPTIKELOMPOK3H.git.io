@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>BEAUTY OF RIAU</title>
+    <link rel="icon" href="img/LOGOUMN.png" type="image/x-icon">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- CSS SENDIRI -->
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaflet Map with GeoJSON</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 450px;
+            width: 95%;
+            border-radius: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <style>
+        body {background-color: skyblue;}
+    </style>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-scroll navbar-dark pt-5">
+        <div class="container container-fluid">
+            <a href="index.html" class="logo mt-2"><img src="img/LOGOUMN.png" alt="logo_wonderful_indonesia" width="45px"></a>
+            <button id="button" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="#seputarriau">Seputar Riau</a>
+                    <a class="nav-link active" href="#destinasipilihan">Destinasi Pilihan</a>
+                    <a class="nav-link active" href="#map">Destinasi Riau</a>
+                    <a class="nav-link active" href="#destinasilainnya">Destinasi Lainnya</a>
+                    <a class="nav-link active" href="#tiket">Dapatkan Tiket Anda</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- AKHIR NAVBAR -->
+
+    <!-- CARAOUSEL -->
+
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner" id="caraousel">
+            <div class="carousel-item active">
+                
+                <h2 class="teks top-50 start-50 translate-middle container">ALL ABOUT RIAU</h2>
+                <picture>
+                    <source srcset="img/1_index_folder/1_carousel/desktop/bnr1.jpg" media="(min-width: 768px)">
+                    <img src="img/1_index_folder/1_carousel/mobile/bnr1.jpg" class="d-block w-100" alt="...">
+                </picture>
+            </div>
+            <div class="carousel-item">
+                
+                <h2 class="teks top-50 start-50 translate-middle" style="margin-top: 50px;">WISATA ALAM</h2>
+                <picture>
+                    <source srcset="img/1_index_folder/1_carousel/desktop/bnr2.jpg" media="(min-width: 768px)">
+                    <img src="img/1_index_folder/1_carousel/mobile/bnr2.jpg" class="d-block w-100" alt="...">
+                </picture>
+            </div>
+            <div class="carousel-item">
+                
+                <h2 class="teks top-50 start-50 translate-middle" style="font-size: 3rem;">SITUS SEJARAH</h2>
+                <picture>
+                    <source srcset="img/1_index_folder/1_carousel/desktop/bnr3.jpg" media="(min-width: 768px)">
+                    <img src="img/1_index_folder/1_carousel/mobile/bnr3.jpg" class="d-block w-100" alt="...">
+                </picture>
+            </div>
+            <div class="carousel-item">
+                
+                <h2 class="teks top-50 start-50 translate-middle" style="margin-top: 50px;">KEARIFAN LOKAL</h2>
+                <picture>
+                    <source srcset="img/1_index_folder/1_carousel/desktop/bnr4.jpg" media="(min-width: 768px)">
+                    <img src="img/1_index_folder/1_carousel/mobile/bnr4.jpg" class="d-block w-100" alt="...">
+                </picture>
+            </div>
+            <div class="carousel-item">
+                
+                <h2 class="teks top-50 start-50 translate-middle" style="margin-top: 50px;">MONUMEN SEJARAH</h2>
+                <picture>
+                    <source srcset="img/1_index_folder/1_carousel/desktop/bnr5.jpg" media="(min-width: 768px)">
+                    <img src="img/1_index_folder/1_carousel/mobile/bnr5.jpg    " class="d-block w-100" alt="...">
+                </picture>
+            </div>
+        </div>
+        <button class="carousel-control-prev top-50" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev" id="button-next-prev" style="margin-left:40px; transform: rotate(180deg);">
+          <img src="img/icon/arrow.svg" alt="" width="10px">
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next top-50" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next" id="button-next-prev" style="margin-right:40px;">
+        <img src="img/icon/arrow.svg" alt="" width="10px">
+          <span class="visually-hidden">Next</span>
+        </button>
+
+    </div>
+
+    <!-- AKHIR CARAOUSEL -->
+
+    <!-- SEPUTAR RIAU -->
+<section id="seputarriau">
+    <div id="petualangan">
+        <div class="container">
+            <h1 class="fw-bold mt-3 text-md-left text-sm-center" style="color: #142b4f;">SEPUTAR RIAU</h1>
+        </div>
+        <!-- Carousel wrapper -->
+        <div id="carouselVideoExample" class="carousel slide carousel-slide" data-mdb-ride="carousel">
+            <div class="carousel-inner mt-5">
+                <div class="carousel-item active">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/G7Vf7I79R7w?si=gg-y_aoz3GV3v6se" class="d-flex m-auto" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <h3 class="fw-bold w-50 d-block m-auto text-center mt-3 ">Yuk, Intip Keberagaman Budaya Yang Ada Di Riau</h3>
+                </div>
+                <div class="carousel-item">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/tWvirOVPJRU?si=LNBDIZ1tN7SiwO5Y" class="d-flex m-auto" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <h3 class="fw-bold w-50 d-block m-auto text-center mt-3 ">Pelajari Lebih Lengkap Tentang Riau</h3>
+                </div>
+                <div class="carousel-item">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/pFnJ97g-wSs?si=wqurOtU5ynREEerQ" class="d-flex m-auto" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <h3 class="fw-bold w-50 d-block m-auto text-center mt-3 ">Bangkit Bersama Untuk Pariwisata Riau</h3>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <button class="carousel-control-prev top-50" type="button" data-bs-target="#carouselVideoExample" data-bs-slide="prev" id="button-next-prev" style="margin-left:200px; transform: rotate(180deg);">
+                <img src="img/icon/arrow.svg" alt="" width="10px">
+                <span class="visually-hidden">Previous</span>
+              </button>
+            <button class="carousel-control-next top-50" type="button" data-bs-target="#carouselVideoExample" data-bs-slide="next" id="button-next-prev" style="margin-right:200px;">
+              <img src="img/icon/arrow.svg" alt="" width="10px">
+                <span class="visually-hidden">Next</span>
+              </button>
+        </div>
+        <!-- Carousel wrapper -->
+    </div>
+    <!-- AKHIR SEPUTAR RIAU -->
+
+    <div class="garis container mt-5"></div>
+</section>
+
+    <!-- DESTINASI PILIHAN -->
+    <section id="destinasipilihan">
+        <div id="destinasi" class="container my-4">
+            <h1 class="fw-bold my-5" style="color: #142b4f;">Destinasi Pilihan</h1>
+    
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card border-0">
+                        <div class="image-container position-relative">
+                            <img src="img/1_index_folder/3_destinasi_pilihan/1.jpg" class="cover w-100">
+                            <button onclick="moveToLocation(0)" class="map-button" href="#map">Peta</button>
+                        </div>
+                        <p class="position-absolute top-50 text-center w-100 fw-bold text-white">Masjid Agung An-Nur populer sebagai objek wisata religi di Pekanbaru karena barsitektur bangunannya yang begitu indah.</p>
+                        <p class="position-absolute top-0 text-center w-100 fw-bold text-white">Masjid Agung An-Nur</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0">
+                        <div class="image-container position-relative">
+                            <img src="img/1_index_folder/3_destinasi_pilihan/2.jpg" class="cover w-100">
+                            <button onclick="moveToLocation(1)" class="map-button" href="#map">Peta</button>
+                        </div>
+                        <p class="position-absolute top-50 text-center w-100 fw-bold text-white">Candi Buddha ini merupakan merupakan peninggalan kerjaan Sriwijaya yang memiliki keunikan yang sangat menarik.</p>
+                        <p class="position-absolute top-0 text-center w-100 fw-bold text-white">Candi Muara Takus</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0">
+                        <div class="image-container position-relative">
+                            <img src="img/1_index_folder/3_destinasi_pilihan/3.jpg" class="cover w-100">
+                            <button onclick="moveToLocation(2)" class="map-button" href="#map">Peta</button>
+                        </div>
+                        <p class="position-absolute top-50 text-center w-100 fw-bold text-white">Tempat peninggalan Kesultanan Siak Riau ini juga menjadi salah satu wisata sejarah Pekanbaru yang paling sering dikunjungi.</p>
+                        <p class="position-absolute top-0 text-center w-100 fw-bold text-white">Istana Siak Sri Indrapura</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0">
+                        <div class="image-container position-relative">
+                            <img src="img/1_index_folder/3_destinasi_pilihan/4.jpeg" class="cover w-100">
+                            <button onclick="moveToLocation(3)" class="map-button" href="#map">Peta</button>
+                        </div>
+                        <p class="position-absolute top-50 text-center w-100 fw-bold text-white">Anjungan Seni Idrus Tintin merupakan tempat yang sering dipakai untuk menampilkan pertunjukan seni.</p>
+                        <p class="position-absolute top-0 text-center w-100 fw-bold text-white">Anjungan Seni Idrus Tintin</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0">
+                        <div class="image-container position-relative">
+                            <img src="img/1_index_folder/3_destinasi_pilihan/5.jpg" class="cover w-100">
+                            <button onclick="moveToLocation(4)" class="map-button" href="#map">Peta</button>
+                        </div>
+                        <p class="position-absolute top-50 text-center w-100 fw-bold text-white">Objek wisata di Pekanbaru yang bisa dikunjungi untuk memperdalam pengetahuan mengenai ibukota Provinsi Riau ini.</p>
+                        <p class="position-absolute top-0 text-center w-100 fw-bold text-white">Museum Sang Nila Utama</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0">
+                        <div class="image-container position-relative">
+                            <img src="img/1_index_folder/3_destinasi_pilihan/6.jpg" class="cover w-100">
+                            <button onclick="moveToLocation(5)" class="map-button" href="#map">Peta</button>
+                        </div>
+                        <p class="position-absolute top-50 text-center w-100 fw-bold text-white">Layaknya sebuah pusat perbelanjaan modern, perpustakaan Soeman H.S dapat dikatakan sebagai perpustakaan termegah di Pekanbaru</p>
+                        <p class="position-absolute top-0 text-center w-100 fw-bold text-white">Perpustakaan Soeman H.S</p>
+                    </div>
+                </div>
+            </div>
+            <script>
+                function redirectToMap() {
+                    window.location.href = "#map";
+                }
+            </script>
+            <script>
+                document.querySelectorAll('.map-button').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+    
+                        const targetId = this.getAttribute('href').substring(1);
+                        const targetSection = document.getElementById(targetId);
+    
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    });
+                });
+            </script>
+            <script>
+                document.querySelectorAll('.nav-link.active').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+    
+                        const targetId = this.getAttribute('href').substring(1);
+                        const targetSection = document.getElementById(targetId);
+    
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    });
+                });
+            </script>
+</section>
+
+    <div class="garis container mt-5"></div>
+    <!-- MAP -->
+    <h1 class="fw-bold mt-3 text-md-left text-sm-center" style="color: #142b4f;">DESTINASI RIAU</h1>
+    <section id="map" style="height: 80vh; width: 100%;">
+        <div id="map" style="height: 80%; width: 80%;"></div>
+    
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    
+        <script>
+            const map = L.map('map').setView([0.523977024701835, 101.4406403557328], 13);
+    
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+    
+            const geojsonFeature = {
+                "type": "FeatureCollection",
+                "features": [
+                    {
+                        "type": "Feature",
+                        "properties": {
+                            "name": "Masjid Raya An-Nur",
+                            "amenity": "Mosque",
+                            "popupContent": "Masjid Raya An-Nur"
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [101.45066734726288, 0.5267927728294666]
+                        }
+                    },
+                    {
+                        "type": "Feature",
+                        "properties": {
+                            "name": "Candi Muara Takus",
+                            "amenity": "Historical Site",
+                            "popupContent": "Candi Muara Takus"
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [100.64204337681417, 0.33595617387734933]
+                        }
+                    },
+                    {
+                        "type": "Feature",
+                            "properties": {
+                            "name": "Istana Siak Sri Indrapura",
+                            "amenity": "Palace",
+                            "popupContent": "Istana Siak Sri Indrapura"
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [102.04910855092322, 0.794814288340703]
+                        }
+                    },
+                    {
+                        "type": "Feature",
+                        "properties": {
+                            "name": "Anjungan Seni Idrus Tintin",
+                            "amenity": "Museum",
+                            "popupContent": "Anjungan Seni Idrus Tintin"
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [101.45583665312171, 0.4778844849412138]
+                        }
+                    },
+                    {
+                        "type": "Feature",
+                        "properties": {
+                            "name": "Museum Sang Nila Utama",
+                            "amenity": "Museum",
+                            "popupContent": "Museum Sang Nila Utama"
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [101.45428851622603, 0.49424689675177547]
+                        }
+                    },
+                    {
+                        "type": "Feature",
+                        "properties": {
+                            "name": "Perpustakaan Soeman H.S",
+                            "amenity": "Library",
+                            "popupContent": "Perpustakaan Soeman H.S"
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [101.4464720956048, 0.5155289827452947]
+                        }
+                    }
+                ]
+            };
+    
+            const geojsonLayer = L.geoJSON(geojsonFeature, {
+                onEachFeature: function (feature, layer) {
+                    if (feature.properties && feature.properties.popupContent) {
+                        layer.bindPopup(feature.properties.popupContent);
+                    }
+                }
+            }).addTo(map);
+    
+            function moveToLocation(index) {
+                const coordinates = geojsonFeature.features[index].geometry.coordinates;
+                map.setView([coordinates[1], coordinates[0]], 13);
+            }
+        </script>
+    </section>
+    
+
+    <div class="garis container mt-5"></div>
+<section id="destinasilainnya">
+    <div id="panduanperjalanan" class="container mt-5">
+        <h1 class="fw-bold my-5" style="color: #142b4f;">Destinasi lainnya</h1>
+        <div class="row">
+            <div class="col-md-4 col-sm-12">
+                <div class="card border-0">
+                    <img src="img/1_index_folder/5_panduan_perjalanan/1.jpg" class="cover">
+                    <div class="position-absolute text-center w-100 fw-bold text-white d-flex justify-content-center align-items-center gap-2" style=" bottom: 8px; ">
+                        <h5>MEDAN</h5>
+                    </div>
+                </div>
+                <a href="https://www.indonesia.travel/gb/en/destinations/sumatra/medan.html" target="_blank" class="btn btn-traveloka w-100">Selengkapnya</a>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div class="card border-0">
+                    <img src="img/1_index_folder/5_panduan_perjalanan/2.jpg" class="cover">
+                    <div class="position-absolute text-center w-100 fw-bold text-white d-flex justify-content-center align-items-end gap-2" style=" bottom: 8px; ">
+                        <h5>PADANG</h5>
+                    </div>
+                </div>
+                <a href="https://www.indonesia.travel/gb/en/destinations/sumatra/padang.html" target="_blank" class="btn btn-traveloka w-100">Selengkapnya</a>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div class="card border-0">
+                    <img src="img/1_index_folder/5_panduan_perjalanan/3.jpeg" class="cover">
+                    <div class="position-absolute text-center w-100 fw-bold text-white d-flex justify-content-center align-items-start gap-2" style=" bottom: 8px; ">
+                        <h5>PALEMBANG</h5>
+                    </div>
+                </div>
+                <a href="https://www.indonesia.travel/gb/en/destinations/sumatra/palembang.html" target="_blank" class="btn btn-traveloka w-100">Selengkapnya</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="tiket">
+    <div id="footer" class="mt-5" style="  background-color: #091426;">
+        <div class="bagian1 p-5 container">
+            <div class="row content">
+                <div class="col-lg-8 col-sm-12 text-center">
+                    <div class="row mt-md-3 my-5">
+                        <div class="col-lg-6 col-12 ">
+                            <h4 class=" text-center text-lg-end mb-lg-0" style="color: #efef60 ;">Dapatkan Tiket Liburan Anda</h4>
+                        </div>
+                        <div class="col-lg-6 col-12 position-relative mt-md-0 mt-4">
+                            <div class="col-lg-6 col-12 position-relative mt-md-0 mt-4">
+                                <a href="https://www.traveloka.com" target="_blank" class="btn btn-traveloka w-100">Go to Traveloka</a>
+                            </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="garis_footer"></div>
+        <div class="bagian2 text-center link-light py-4 container" style="font-size: 12px;">
+            <p>Situs ini merupakan situs tugas akhir semester mata kuliah intro to internet technology semester 2 Universitas Multimedia Nusantara dengan kode mata kuliah IF231 dan kode kelas H kelompok 3 yang terdiri dari Fawwaz Azka Syarief (00000101519), Mohammad Ubaidurrachman (00000103737), Ananda Mieko Chavvah Ramadhan (00000104936), Grandmoze El Gibbor Aotepah (00000110660).</p>
+        </div>
+    </div>
+</section>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script>
+        var nav = document.querySelector("nav");
+        window.addEventListener("scroll", function() {
+            nav.classList.toggle("sticky", window.scrollY > 0);
+        })
+        var button = document.getElementById("button")
+        button.addEventListener("click", function() {
+            if (window.scrollY != 0) {
+                nav.classList.toggle("nav-click-scroll");
+            } else {
+                nav.classList.toggle("nav-click");
+            }
+        })
+    </script>
+</body>
+
+</html>
